@@ -15,7 +15,7 @@ import os
 class RMS:
     def __init__(self,root):
         self.root=root
-        self.root.title("Student Result Management System")
+        self.root.title("Student Central")
         self.root.geometry("1350x700+110+20")
         self.root.config(bg="white")
 
@@ -23,7 +23,7 @@ class RMS:
         self.logo_dash=ImageTk.PhotoImage(file="images/logo_p.png")
 
         #------------- title --------------
-        title=Label(self.root,text="Student Result Management System",compound=LEFT,padx=10,image=self.logo_dash,font=("goudy old style",20,"bold"),bg="#033054",fg="white").place(x=0,y=0,relwidth=1,height=50)
+        title=Label(self.root,text="Student Central",compound=LEFT,padx=10,image=self.logo_dash,font=("goudy old style",20,"bold"),bg="#033054",fg="white").place(x=0,y=0,relwidth=1,height=50)
 
         #---------------- menu -------------
         M_Frame=LabelFrame(self.root,text="Menu",font=("times new roman",15),bg="white")
@@ -57,7 +57,7 @@ class RMS:
 
         # ------------- footer --------------
 
-        footer = Label(self.root,text="Student Result Management System\nContact Us for any Technical Issue: 01309896601",font=("goudy old style", 12), bg="#262626", fg="white").pack(side=BOTTOM, fill=X)
+        footer = Label(self.root,text="Student Central\nContact Us for any Technical Issue: 0130xxx01",font=("goudy old style", 12), bg="#262626", fg="white").pack(side=BOTTOM, fill=X)
         self.update_details()
 
 

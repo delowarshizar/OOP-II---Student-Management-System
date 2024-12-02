@@ -106,7 +106,7 @@ login_window.geometry("700x500+410+100")
 login_window.configure(bg="#1e293b")
 
 # Login Frame
-login_frame = Frame(login_window, padx=20, pady=20, bg="#ffffff", bd=5, relief=RIDGE)
+login_frame = Frame(login_window, padx=130, pady=80, bg="#ffffff", bd=5, relief=RIDGE)
 login_frame.pack()
 
 Label(login_frame, text="Login", font=("Helvetica", 18, "bold"), bg="#ffffff", fg="#1e293b").pack(pady=10)
@@ -124,7 +124,7 @@ Button(login_frame, text="Register", command=open_register_screen, bg="#0073e6",
 Button(login_frame, text="Forgot Password", command=open_forgot_password_screen, bg="#f44336", fg="white", width=15, font=("Arial", 10, "bold")).pack(pady=5)
 
 # Register Frame
-register_frame = Frame(login_window, padx=20, pady=20, bg="#ffffff", bd=5, relief=RIDGE)
+register_frame = Frame(login_window, padx=130, pady=80, bg="#ffffff", bd=5, relief=RIDGE)
 
 Label(register_frame, text="Register", font=("Helvetica", 18, "bold"), bg="#ffffff", fg="#1e293b").pack(pady=10)
 
@@ -144,7 +144,7 @@ Button(register_frame, text="Register", command=handle_register, bg="#4caf50", f
 Button(register_frame, text="Back to Login", command=open_login_screen, bg="#f44336", fg="white", width=15, font=("Arial", 10, "bold")).pack(pady=5)
 
 # Forgot Password Frame
-forgot_password_frame = Frame(login_window, padx=20, pady=20, bg="#ffffff", bd=5, relief=RIDGE)
+forgot_password_frame = Frame(login_window, padx=130, pady=80, bg="#ffffff", bd=5, relief=RIDGE)
 
 Label(forgot_password_frame, text="Forgot Password", font=("Helvetica", 18, "bold"), bg="#ffffff", fg="#1e293b").pack(pady=10)
 
