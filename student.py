@@ -34,15 +34,14 @@ class Student:
         lbl_email=Label(self.root,text="Email",font=("goudy old style",15,"bold"),bg="white").place(x=10,y=140)
         lbl_gender=Label(self.root,text="Gender",font=("goudy old style",15,"bold"),bg="white").place(x=10,y=180)
         lbl_country=Label(self.root,text="Country",font=("goudy old style",15,"bold"),bg="white").place(x=10,y=220)
-        txt_country=Entry(self.root,textvariable=self.var_country,font=("goudy old style",15,"bold"),bg="lightyellow").place(x=150,y=220,width=150)
         lbl_city=Label(self.root,text="City",font=("goudy old style",15,"bold"),bg="white").place(x=310,y=220)
-        txt_city=Entry(self.root,textvariable=self.var_city,font=("goudy old style",15,"bold"),bg="lightyellow").place(x=380,y=220,width=100)
         lbl_zip=Label(self.root,text="Zip",font=("goudy old style",15,"bold"),bg="white").place(x=500,y=220)
-        txt_zip=Entry(self.root,textvariable=self.var_zip,font=("goudy old style",15,"bold"),bg="lightyellow").place(x=560,y=220,width=120)
-
         lbl_address=Label(self.root,text="Address",font=("goudy old style",15,"bold"),bg="white").place(x=10,y=260)
 
         #------------ entry fields -------------
+        txt_zip=Entry(self.root,textvariable=self.var_zip,font=("goudy old style",15,"bold"),bg="lightyellow").place(x=560,y=220,width=120)
+        txt_city=Entry(self.root,textvariable=self.var_city,font=("goudy old style",15,"bold"),bg="lightyellow").place(x=380,y=220,width=100)
+        txt_country=Entry(self.root,textvariable=self.var_country,font=("goudy old style",15,"bold"),bg="lightyellow").place(x=150,y=220,width=150)
         self.txt_roll=Entry(self.root,textvariable=self.var_roll,font=("goudy old style",15,"bold"),bg="lightyellow")
         self.txt_roll.place(x=150,y=60,width=200)
         txt_name=Entry(self.root,textvariable=self.var_name,font=("goudy old style",15,"bold"),bg="lightyellow").place(x=150,y=100,width=200)
@@ -54,8 +53,8 @@ class Student:
         #--------- column 2 ---------------
         lbl_dob=Label(self.root,text="D.O.B.",font=("goudy old style",15,"bold"),bg="white").place(x=360,y=60)
         lbl_contact=Label(self.root,text="Contact",font=("goudy old style",15,"bold"),bg="white").place(x=360,y=100)
-        lbl_admission=Label(self.root,text="Admission",font=("goudy old style",15,"bold"),bg="white").place(x=360,y=140)
-        lbl_NID=Label(self.root,text="NID",font=("goudy old style",15,"bold"),bg="white").place(x=360,y=180)
+        lbl_admission=Label(self.root,text="Department",font=("goudy old style",15,"bold"),bg="white").place(x=360,y=140)
+        lbl_NID=Label(self.root,text="NID/BC",font=("goudy old style",15,"bold"),bg="white").place(x=360,y=180)
 
         #------------ entry fields -------------
         #self.course_list=[""]
@@ -86,7 +85,7 @@ class Student:
         #-------------- search panel -----------------
         self.var_search=StringVar()
 
-        lbl_search_roll=Label(self.root,text="Roll No.",font=("goudy old style",15,"bold"),bg="white").place(x=720,y=60)
+        lbl_search_roll=Label(self.root,text="Enter Roll No.",font=("goudy old style",15,"bold"),bg="white").place(x=720,y=60)
         txt_search_roll=Entry(self.root,textvariable=self.var_search,font=("goudy old style",15,"bold"),bg="lightyellow").place(x=870,y=60,width=180)
 
         btn_search=Button(self.root,text="Search",command=self.search,font=("goudy old style",15,"bold"),bg="#03a9f4",fg="white",cursor="hand2").place(x=1070,y=60,width=120,height=28)
@@ -159,7 +158,7 @@ class Student:
                         self.txt_address.get("1.0",END)
                     ))
                     con.commit()
-                    messagebox.showinfo("Success","Student Added Successfully",parent=self.root)
+                    messagebox.showinfo("Success","Student info Added Successfully",parent=self.root)
                     self.show()
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to: {str(ex)}")
@@ -187,18 +186,6 @@ class Student:
             self.StudentTable.delete(*self.StudentTable.get_children())
             for row in rows:
                 self.StudentTable.insert('',END,values=row)
-        except Exception as ex:
-            messagebox.showerror("Error",f"Error due to: {str(ex)}")
-
-    def fetch_course(self):
-        con=sqlite3.connect(database="rms.db")
-        cur=con.cursor()
-        try:
-            cur.execute("select name from course")
-            rows=cur.fetchall()
-            if len(rows)>0:
-                for row in rows:
-                    self.course_list.append(row[0])
         except Exception as ex:
             messagebox.showerror("Error",f"Error due to: {str(ex)}")
 
